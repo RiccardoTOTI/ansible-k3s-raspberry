@@ -1,0 +1,26 @@
+workers:
+  hosts:
+    nerminworker1:
+      ansible_host: 
+      ansible_user: 
+    nerminworker2:
+      ansible_host: 
+      ansible_user: 
+
+masters:
+  hosts:
+
+# This hostgroup is designed to only contains the initial bootstrap master node
+bootstrapMaster:
+  hosts:
+    nerminmaster:
+      ansible_host: 
+      ansible_user: 
+
+pies:
+  children:
+    bootstrapMaster:
+    masters:
+    workers:
+  vars:
+    k3s_version: v1.30.0+k3s1
